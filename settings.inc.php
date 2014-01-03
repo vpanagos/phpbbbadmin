@@ -1,7 +1,7 @@
 <?php
 
 
-$salt="bf94b926f56dda49bc4e3e52499ea77d";
+$salt="af34b926f5625a49bc4e3e52769ea77e";
 $hostname="1.2.3.4";
 
 
