@@ -1,37 +1,57 @@
 <!doctype html>
 <!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
 <html class="no-js" lang="en" data-useragent="Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>phpbbbadmin</title>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>phpbbbadmin</title>
+		<link rel="stylesheet" href="phpbbbadmin.css" />
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-    
-    <link rel="stylesheet" href="phpbbbadmin.css" />
-  </head>
-  <body>
-    
+	</head>
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">phpbbbadmin<sup><small style='color:red'>alpha</small></sup></a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.php">Start</a></li>
+            <li><a href="meetings.php">Meetings</a></li>
+            <li><a href="about.php">About</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <div class="starter-template">
 
 
-<!-- Header and Nav -->
-  
-  <div class="row">
-    <div class="large-3 columns">
-      <h1>phpbbbadmin<sup><small style='color:red'>alpha</small></sup><!--img src="http://placehold.it/400x100&text=Logo" /--></h1>
-    </div>
-    <div class="large-9 columns">
-      <ul class="inline-list right">
-        <li><a href="#">Server 1</a></li>
-        <li><a href="#">Server 2</a></li>
-      </ul>
-    </div>
-  </div>
-  
-  <!-- End Header and Nav -->
-  
-  
-  <div class="row">    
-    
-    <!-- Main Content Section -->
-    <!-- This has been source ordered to come first in the markup (and on small devices) but to be to the right of the nav on larger screens -->
-    <div class="large-9 push-3 columns">
+
+<?php
+require('settings.inc.php');
+require('include.php');
+
+$remoteip=$_SERVER['REMOTE_ADDR'];
+
+if (!in_array($remoteip,$allowedips)) {
+	echo "<div class='alert alert-danger' role='alert'><span class='glyphicon glyphicon-warning-sign' aria-hidden='true'></span> Παρουσιάστηκε κάποιο πρόβλημα</div>";
+	require('footer.inc.php');
+	die();
+}
+
+?>
